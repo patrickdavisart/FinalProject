@@ -30,9 +30,17 @@ var FireWork2 = new Image();
 FireWork2.src = "Sprites/firework2.png";
 
 
+var Baudio = new Audio('BGM.mp3');
 function playmusic(){
-	var audio = new Audio('BGM.mp3');
-	audio.play();
+	if(Baudio.paused && !Baudio.ended)
+  {
+    Baudio.play();
+    console.log("playing")
+  }
+  else
+  {
+    console.log("Can't playyyy");
+  }
 }
 
 function eraseSprite() 
@@ -55,13 +63,13 @@ function drawFW2()
 
 function loadComplete() 
 {
-  var bgm = new Audio('BGM.mp3'); 
-  bgm.volume = 0.1;
-  bgm.addEventListener('ended', function() {
-    this.currentTime = 0;
-    this.play();
-    }, false);
-bgm.play();
+//   var bgm = new Audio('BGM.mp3'); 
+//   bgm.volume = 0.1;
+//   bgm.addEventListener('ended', function() {
+//     this.currentTime = 0;
+//     this.play();
+//     }, false);
+// bgm.play();
 
   canvas = document.getElementById("theCanvas");
   ctx = canvas.getContext("2d");
@@ -182,7 +190,7 @@ document.onreadystatechange = function () {
 		  }
         }
 		//checks if positon is correct and moves 
-        if (check == "1234567891011121314150" && numberOfMoves > 80) {
+        if (check == "1234567891011121314150" && numberOfMoves > 20) {
           console.log("You win");
           didwin = true;
           celebrate()
@@ -192,7 +200,7 @@ document.onreadystatechange = function () {
       }
 
       function reload() {alert("hey") }
-// fix image - call image to celbrate a win
+// fix image
       function celebrate() {
         document.getElementById("puzzlearea").innerHTML = "<div><img onclick='location.reload();' src='https://www.raepica.com/wp-content/uploads/2019/05/good-job.jpeg' width =200 /></div><br /><h1 onclick='location.reload();'>Good Job</h1>";
         console.log('what is this: ', document.getElementById("shufflebutton"))
@@ -219,14 +227,14 @@ document.onreadystatechange = function () {
             document.getElementById("numberOfMoves").innerHTML = numberOfMoves;          
           }
       }
-		
+
       function getRandomElement() {
         var movables = getArrayOfMovableCells();
         return movables[Math.floor(Math.random() * movables.length)];
       }
 
       function openBlock() {
-        // finds the open block in the grid[]
+        // find the open block in the grid[]
         for (i = 0; i < grid.length; i++) {
           if (grid[i][2] == true){return i;}
         }
@@ -235,7 +243,7 @@ document.onreadystatechange = function () {
       function getArrayOfMovableCells() {
         var open = openBlock()
         var movables = [open-4, open-1, open+1, open+4]
-        // purges the bounds of the indexes
+        // purge the bounds of the indexes
         var count = movables.length;
         for (i = 0; i < count; i++) {
           // check down
@@ -299,7 +307,7 @@ document.onreadystatechange = function () {
         // add new listeners tiles to new set of movables
         addEventListeners(getArrayOfMovableCells());
       }
-		//adds the listeners for moves
+
       function addEventListeners(movables) {
         for (i = 0; i < movables.length; i++) {
 		  if (puzzleAreaContents[movables[i]]) {
@@ -309,7 +317,7 @@ document.onreadystatechange = function () {
 		  }
         }
       }
-		//remove the listeners
+
       function removeEventListeners(movables) {
         for (i = 0; i < movables.length; i++) {
 		  if (puzzleAreaContents[movables[i]]) {
@@ -330,6 +338,7 @@ document.onreadystatechange = function () {
           puzzleAreaContents[i].style.top = y+"px" ;
           puzzleAreaContents[i].style.left = x+"px" ;
           // set backgroundPosition - use negative numbers 
+          // because I don't know why, but it magically works 
           puzzleAreaContents[i].style.backgroundPosition = "-"+x+"px "+"-"+y+"px" ;
           // increment x by 100 until each 4th columm, then increment y and reset x to 0
           if (x==300)
@@ -337,7 +346,7 @@ document.onreadystatechange = function () {
            var x = 0; }
           else{var x = x + 100;}
         }
-        // add 16th or the "empty" element
+        // add 16th "empty" element
         // this moves around the htmlCollection just like all other elements
         document.getElementById("puzzlearea").innerHTML = document.getElementById("puzzlearea").innerHTML + "<div class='empty'></div>"
         addEventListeners(getArrayOfMovableCells());

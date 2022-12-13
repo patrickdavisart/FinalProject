@@ -24,11 +24,10 @@
                 <center>
                         <canvas id="theCanvas" tabindex="1" height="250"></canvas>
                 </center>
-				<!--how to play the game-->
+				<!--how to play-->
                 <p class="explanation">
                         The goal of the fifteen puzzle is to un-scramble the fifteen squares by repeatedly making moves that slide squares into the empty space.  
 					<br>
-						Hit shuffle to begin.
 					<h3>How quickly can you solve it?</h3>
                 </p>
 				
@@ -45,23 +44,9 @@
                         <div id="controls">
 						<!-- shuffle button -->
                         <button id="shufflebutton">Shuffle</button>
-						<!-- music button to start the music -->
 						<button id="audio" onclick = "playmusic()">Music</button>
                         </div>
 						<br>
-						<p>Time Elapsed:<div id="timer">00:00</div></p>
-						
-						<script> 
-						var timer;
-						var element = document.getElementById("timer");
-						(function (){
-							var second = 0;
-							timer = setInterval(() => {
-								element.innerHTML = second;
-								second++;
-							}, 1000)
-						})()
-						</script>
                 </div>
 				<br>
                 <!-- description of the histroy of the game-->
