@@ -1,0 +1,176 @@
+/*   Fifteen Puzzle Group Project  style sheet
+	 Web Programming Fall 2022
+	 
+	 Patrick Davis
+	 Jay Lambasia
+	 Farhana Chadni 
+     Abdulmalek Abulgasem  */
+
+
+@font-face {
+    font-family: 'Chocolate Dealer';
+    src: url('ChocolateDealer-Bold.eot');
+    src: url('ChocolateDealer-Bold.eot?#iefix') format('embedded-opentype'),
+        url('ChocolateDealer-Bold.woff2') format('woff2'),
+        url('ChocolateDealer-Bold.woff') format('woff'),
+        url('ChocolateDealer-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cursivestandard';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Cursivestandard'), url('Cursive standard.woff') format('woff');
+    }
+
+body {
+        font-family: 'Cursivestandard';
+        font-size: 14pt;
+		position: center;
+		text-align: center;
+		padding: 50px;
+                color: white;
+        background-image: url("background.jpg") ;
+        background-repeat: repeat;
+        background-attachment: fixed;
+        background-position: center;
+        background-size: cover;  
+}
+
+#controls, #overall, #puzzlearea {
+        width: 400px;
+}
+
+#controls {
+        padding-top: 10px;
+        text-align: center;
+}
+
+h1 {
+        position: relative;
+        font-family: 'Chocolate Dealer', sans-serif;
+		font-size: 70pt;
+		margin: 10px 0px;
+        text-align: center;
+        color: #4CACBC;
+        text-shadow: 2px 2px 1px #5C4033, 4px 4px 1px #bc9e82, 6px 6px 1px blue;
+
+}
+
+#puzzlearea
+{
+        background-color: #03073D;
+        color: #4b86c2;
+}
+
+h2 
+{
+        font-family:'autumn_flowersregular';
+		font-size: 10pt;
+		margin: 10px 0px;
+        text-align: left;
+        color: #BCD2E8;
+}
+
+p
+{
+        color: white;
+        font-weight: bolder;
+
+}
+
+#controls
+{
+        text-align: center;
+}
+
+#btn
+{
+        border: 2px solid darkblue;
+        background: none;
+        padding: 10px 20px;
+        font-size: 20px;
+        font-family: serif;
+        cursor: pointer;
+        margin: 10px;
+        position: relative;
+}
+#shufflebutton
+{
+     color: white;
+     background-color: #3369B4;
+     font-family: "Times New Roman", Times, serif;
+     font-size: 25px;
+}
+
+#shufflebutton:hover
+{
+    color: black;    
+}
+
+#audio
+{
+     color: white;
+     background-color: #3369B4;
+     font-family: "Times New Roman", Times, serif;
+     font-size: 25px;
+}
+
+#audio:hover
+{
+    color: black;    
+}
+
+/* Used to center the puzzle. */
+#overall {
+        margin-left: auto;
+        margin-right: auto;
+}
+
+/* The area that holds the 15 puzzle pieces. */
+#puzzlearea {
+        font-family: sans-serif;
+        font-size: 32pt;
+        height: 400px;
+        padding: 0px;
+        position: relative;
+}
+
+.text-Overlap{
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+}
+
+/* This class should be applied to each of the 15 puzzle pieces. 
+
+fix this image - the path is messed up*/
+.mario-img{
+        height: 100px;
+        width: 100px;
+}
+
+.puzzlepiece {
+        
+        border: 2px solid black;
+        height: 96px;
+        line-height: 96px;
+        position: absolute;
+        text-align: center;
+        vertical-align: middle;
+        width: 96px;
+}
+
+/* This class should be applied to a puzzle piece that can be moved. */
+.puzzlepiecehover {
+        border-color: red;
+        color: #006600;
+        font-weight: extra-bold;
+        text-decoration: underline;
+}
+
+
+

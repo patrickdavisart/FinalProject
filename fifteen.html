@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<!-- Fifteen Puzzle Group Project 
+	 Web Programming Fall 2022
+	 
+	 Patrick Davis
+	 Jay Lambasia
+	 Farhana Chadni 
+     Abdulmalek Abulgasem-->
+
+        <head>
+                <title>Fifteen Puzzle!</title>
+                <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+                <meta name="version" content="Web Programming Fall 2022" />
+                <!-- reference the style and formatting-->
+                <link rel="stylesheet" type="text/css" href="fifteen_style.css" />
+                
+                <script type="text/javascript" src="fifteen_script.js"></script>
+                
+        </head>
+
+        <body onload="loadComplete()" text="#ffffff">
+                <h1 class="he">Fifteen Puzzle</h1>
+                <center>
+                        <canvas id="theCanvas" tabindex="1" height="250"></canvas>
+                </center>
+				<!--how to play the game-->
+                <p class="explanation">
+                        The goal of the fifteen puzzle is to un-scramble the fifteen squares by repeatedly making moves that slide squares into the empty space.  
+					<br>
+						Hit shuffle to begin.
+					<h3>How quickly can you solve it?</h3>
+                </p>
+				
+				<!--build the board-->
+                <div id="overall">
+                        <div id="puzzlearea">
+                                <!-- the fifteen puzzle pieces -->
+                                <div><img class="mario-img" src="images/1.png"><div class="text-Overlap">1</div></div>  <div><img class="mario-img" src="images/2.png"><div class="text-Overlap">2</div></div>  <div><img class="mario-img" src="images/3.png"><div class="text-Overlap">3</div></div>  <div><img class="mario-img" src="images/4.png"><div class="text-Overlap">4</div></div>
+                                <div><img class="mario-img" src="images/5.png"><div class="text-Overlap">5</div></div>  <div><img class="mario-img" src="images/6.png"><div class="text-Overlap">6</div></div>  <div><img class="mario-img" src="images/7.png"><div class="text-Overlap">7</div></div>  <div><img class="mario-img" src="images/8.png"><div class="text-Overlap">8</div></div>
+                                <div><img class="mario-img" src="images/9.png"><div class="text-Overlap">9</div></div>  <div><img class="mario-img" src="images/10.png"><div class="text-Overlap">10</div></div> <div><img class="mario-img" src="images/11.png"><div class="text-Overlap">11</div></div> <div><img class="mario-img" src="images/12.png"><div class="text-Overlap">12</div></div>
+                                <div><img class="mario-img" src="images/13.png"><div class="text-Overlap">13</div></div> <div><img class="mario-img" src="images/14.png"><div class="text-Overlap">14</div></div> <div><img class="mario-img" src="images/15.png"><div class="text-Overlap">15</div></div>
+                        </div>
+
+                        <div id="controls">
+						<!-- shuffle button -->
+                        <button id="shufflebutton">Shuffle</button>
+						<!-- music button to start the music -->
+						<button id="audio" onclick = "playmusic()">Music</button>
+                        </div>
+						<br>
+						<p>Time Elapsed:<div id="timer">00:00</div></p>
+						
+						<script> 
+						var timer;
+						var element = document.getElementById("timer");
+						(function (){
+							var second = 0;
+							timer = setInterval(() => {
+								element.innerHTML = second;
+								second++;
+							}, 1000)
+						})()
+						</script>
+                </div>
+				<br>
+                <!-- description of the histroy of the game-->
+                <h2 class="explanation">
+                        American puzzle author and mathematician Sam Loyd is often falsely credited with creating the puzzle; indeed, Loyd claimed from 1891 until his death in 1911 that he invented it.  The puzzle was actually created around 1874 by Noyes Palmer Chapman, a postmaster in Canastota, New York.
+                </h2>
+
+        </body>
+</html>
